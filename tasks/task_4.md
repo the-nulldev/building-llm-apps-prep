@@ -45,7 +45,6 @@ model_list:
       api_key: os.environ/<another_actual_api_key> # does os.getenv("another_actual_api_key") to get your actual API key
       num_retries: 5 
       mode: embedding
-			
 litellm_settings: # module level litellm settings - https://github.com/BerriAI/litellm/blob/main/litellm/__init__.py
   drop_params: True
   success_callback: ["langfuse"] # OPTIONAL - if you want to start sending LLM Logs to Langfuse. Make sure to set `LANGFUSE_PUBLIC_KEY` and `LANGFUSE_SECRET_KEY` in your env
@@ -55,7 +54,6 @@ litellm_settings: # module level litellm settings - https://github.com/BerriAI/l
   request_timeout: 600 # raise Timeout error if call takes longer than 600 seconds. Default value is 6000seconds if not set
   set_verbose: False # Switch off Debug Logging, ensure your logs do not have any debugging on
   json_logs: true # debug logs in json format
-  
 general_settings:
   master_key: sk-deploying-llm-applications # the master key the app will use. must start with sk
   salt_key: deploying-llm-apps # used to encrypt and decrypt your API key. Use https://1password.com/password-generator to generate a good one
