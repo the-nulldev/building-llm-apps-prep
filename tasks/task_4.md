@@ -40,11 +40,11 @@ model_list:
       num_retries: 3
       
   - model_name: <another_model> # another model for you application for example the embeddings model
-	  litellm_params:
-	    model: <another_actual_model_name> # model name that LiteLLM will call
-	    api_key: os.environ/<another_actual_api_key> # does os.getenv("another_actual_api_key") to get your actual API key
-			num_retries: 5 
-			mode: embedding
+    litellm_params:
+      model: <another_actual_model_name> # model name that LiteLLM will call
+      api_key: os.environ/<another_actual_api_key> # does os.getenv("another_actual_api_key") to get your actual API key
+      num_retries: 5 
+      mode: embedding
 			
 litellm_settings: # module level litellm settings - https://github.com/BerriAI/litellm/blob/main/litellm/__init__.py
   drop_params: True
