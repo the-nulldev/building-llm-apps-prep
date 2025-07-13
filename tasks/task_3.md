@@ -3,7 +3,6 @@
 ### **Table of Contents**
 
 - [Description](#description)
-- [Useful Notes](#useful-notes)
 - [Development Steps](#development-steps)
 - [Deliverables](#deliverables)
 - [Useful Resources](#useful-resources)
@@ -15,7 +14,7 @@ So far, we’ve left our application unguarded, hoping that users will use it re
 
 So far, we’ve been using carefully crafted prompts to ensure that the model doesn’t answer questions related to ordering and returns. Now, we’d like to place guardrails that prevent this from happening even without enforcing it in the system prompt.
 
-### Theory
+### Development Steps
 
 To add guardrails, you need to define them in YAML configuration files, specifying the desired behavior for different scenarios. Here, we need to create input rails to validate user input. Therefore, in your guardrails config file (`config/config.yml`), define an input rail to check input. Also, define your model provider and the general instructions. You can use the following general instructions:
 
@@ -49,7 +48,7 @@ Your task is to check if the user message below follows guidelines for interacti
 ```
 
 Among other LLM safety instructions, the bot should not respond to general customer support queries. Previously, we enforced this via the system prompt, but we don’t have to anymore. Now, we can save costs because the user’s input and chat history won’t even be sent to the LLM! Check out [the docs](https://docs.nvidia.com/nemo/guardrails/latest/getting-started/4-input-rails/README.html) on how to define input rails if you need to learn more.
-
+You can also define other rails, such as output rails, to validate the LLM output in the same way.
 Once you have that, the next step is to use the guardrails in your LangChain chains. You can do this in two ways:
 
 1. In chains and runnables:
@@ -75,22 +74,13 @@ Once you have that, the next step is to use the guardrails in your LangChain cha
     chain_with_rails = RunnableRails(config, runnable=my_chain)
     ```
 
-
 There are a few modifications you need to make to ensure that the chatbot works as expected. First, when creating the runnable rails instance, you need to modify the name of the input key. Guardrails expect this key to be named “input” but in our case it is “user_input”:
 
 ```python
 rails = RunnableRails(config, input_key="user_input")
 ```
 
-Next, you need to modify the `generate_context` function to ensure that guardrails correctly parse the output from tools. Instead of creating a list and adding the tool responses, just return the tool response directly:
-
-```python
-if tool_call["name"] == "SmartphoneInfo":
-    tool_response = smartphone_info_tool.invoke(tool_call).content
-    return tool_response
-```
-
-Finally, you only need to apply the guardrails to the context chain. Before invoking the final response chain, check the output of the context chain. If the input rail is triggered, the bot would respond as follows:
+Next, you need to apply the guardrails to the context chain. Before invoking the final response chain, check the output of the context chain. If the input rail is triggered, the bot would respond as follows:
 
 ```text
 I'm sorry, I can't respond to that.
@@ -150,5 +140,13 @@ If you have specific models in mind, I can help compare their camera systems!
 Your usage so far: 0.00025935
 User: 
 ```
-
 ---
+
+### Deliverables
+Your application should now be able to validate user input and prevent the bot from responding to inappropriate queries. You can test it with various inputs to ensure that it behaves as expected. 
+
+### Useful Resources
+#### Docs
+- [Guardrails docs](https://docs.nvidia.com/nemo/guardrails/latest/index.html)
+- [Guardrails for LangChain](https://docs.nvidia.com/nemo/guardrails/latest/user-guides/langchain/index.html)
+- [Guardrails for LangChain Runnables](https://docs.nvidia.com/nemo/guardrails/latest/user-guides/langchain/runnable-rails.html)
