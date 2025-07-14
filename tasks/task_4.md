@@ -79,7 +79,7 @@ Ensure that you create and map the file as *config.yaml,* not *config.yml*. Also
 
 Now, you can start the LiteLLM proxy with `docker compose up -d` (option -d runs it in the background, but you can omit it for debugging since it may take a long time to start). Then, verify that it is available at [localhost](http://0.0.0.0:4000/v1/models). Once you have the proxy up and running, you just need to head over to the [LiteLLM admin UI](http://0.0.0.0:4000/ui/). To log in, you use the username `admin` and the master key you set in `config.yaml` as the password. Here is what the dashboard looks like:
 
-![LiteLLM dashboard](../assets/images/litellm_dashboard.png)
+![LiteLLM Dashboard](../assets/images/litellm_dashboard.png)
 
 Here, you can generate virtual keys for users. This allows you to track the user’s current usage and rate limit/reject/route their requests.  You can also use `curl` to create virtual keys for your users or teams. Here’s how you might create a virtual key (replace <your-master-key>) and set the models you’d like the key to be able to access:
 
