@@ -39,11 +39,10 @@ Here are the main directories and files in this repo:
 ```markdown
 ├── images/
 │   ├── litellm_dashboard.png
-│   ├── system_ui.png
-│   ├── qdrant_free_cluster.png
-│   ├── redis_dashboard.png
-│   ├── langfuse_dashboard.png
-│   └── ecr_push_commands.png
+│   ├── new_prompt.png
+│   ├── prompt_links.png
+│   ├── prompt_observations.png
+│   └── prompt_playgrounds.png
 ├── tasks/
 │   ├── task_1.md
 │   ├── task_2.md
