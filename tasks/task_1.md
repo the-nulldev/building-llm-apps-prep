@@ -9,6 +9,8 @@
 - [Useful Resources](#useful-resources)
     - [Topics](a#topics-and-projects)
     - [Docs](#docs)
+    - 
+---
 
 ### Description
 
@@ -17,6 +19,8 @@ Before you get that near-perfect prompt for your LLM applications, you will have
 When refining prompts, hard-coded prompts in your application will be difficult to deal with. Will you have to redeploy your application whenever you make the slightest change to your prompts? How do you know how your prompts have evolved? How do you roll back to previous prompts that worked better? You need a better way to manage and version your prompts.
 
 Well, you can treat your prompts the same way you treat code. That is, use Git to store and version your prompts as JSON/YAML files. You can also use third-party platforms or, if your monitoring solution provides this functionality, you can leverage that. Luckily, Langfuse, our monitoring solution, allows us to create, test, rollback, and manage prompts effortlessly. If you are using another solution like [LangSmith](https://docs.smith.langchain.com/prompt_engineering/how_to_guides/manage_prompts_programatically) or [Portkey](https://portkey.ai/docs/product/prompt-engineering-studio/prompt-versioning), they also provide this functionality.
+
+---
 
 ### Useful Notes
 
@@ -74,6 +78,8 @@ You should now see metrics associated with that prompt in the Langfuse UI:
 
 [ALERT-primary] Check out [Langfuse docs](https://langfuse.com/docs/prompts/get-started) to learn more. [/ALERT]
 
+---
+
 ### Development Steps
 
 Move prompts to Langfuse and refactor the code to use these prompts. Ensure that the application continues to function in the same way. Since we are also tracking metrics related to each prompt, ensure to add the metadata field for each prompt. You should now see metrics in Langfuse. You can also easily run experiments and test these prompts from the Langfuse UI to ensure you have the best versions. Here are some examples:
@@ -86,13 +92,13 @@ Example 2: *Metrics for sample prompts in Langfuse UI*:
 
 ![Prompt metrics in Langfuse UI](../assets/images/prompt_metrics.png)
 
----
-
 Example 3: *Testing prompts in Playground (you can include a placeholder for chat history in your prompts)*:
 
 ![Testing prompts in Langfuse Playground](../assets/images/prompts_playground.png)
 
 You know that these prompts are not perfect, but now that they are decoupled from your system, it will be much easier to iterate and fine-tune them.
+
+---
 
 ### **Useful Resources**
 
