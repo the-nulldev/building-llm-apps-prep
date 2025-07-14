@@ -6,10 +6,10 @@
 - [Learning Outcomes](#learning-outcomes)
 - [Project Structure](#project-structure)
 - [Tasks](#tasks)
-    - Task One — Prompt Management and Versioning
-    - Task Two — Chat History Management
-    - Task Three — NeMo Guardrails
-    - Task Four — Managing API Keys and Budgets via LiteLLM Proxy.
+    - [Task One — Prompt Management and Versioning](./tasks/task_1.md)
+    - [Task Two — Chat History Management](./tasks/task_2.md)
+    - [Task Three — LLM Safety and Security: Guardrails](./tasks/task_3.md)
+    - [Task Four — Managing API Keys and Budgets via LiteLLM Proxy.](./tasks/task_4.md)
 - [Deliverables](#deliverables)
 - [Useful Resources](#useful-resources)
 - [Contributing](#contributing)
