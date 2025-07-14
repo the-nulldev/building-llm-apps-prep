@@ -8,6 +8,8 @@
 - [Useful Resources](#useful-resources)
     - [Docs](#docs)
 
+---
+
 ### Description
 
 Once you get your API keys from your model provider, it is a good idea for your applications to use them via an LLM proxy server. This allows you to perform additional actions before the requests are routed to your model provider. For instance, you can enforce budget constraints, set rate limits, add load balancing, caching, and more.
@@ -21,6 +23,8 @@ Once you get your API keys from your model provider, it is a good idea for your 
 - Cost optimization: Smart request routing based on cost and performance metrics.
 
 In this task, you will set up and use the [LiteLLM proxy](https://docs.litellm.ai/) to manage your API key. Through a set of configs, we will create virtual keys that we can assign to applications or users, which in turn allow us to enforce certain constraints, such as user budgets and rate limits.
+
+---
 
 ### Development Steps
 
@@ -127,9 +131,13 @@ response = llm.invoke(
 
 As you can see, this is much better than the approach we used previously.
 
+---
+
 ### Deliverables
 
 You should now have the LiteLLM proxy running in your local environment. Your application should use this proxy to manage API keys, budget, and rate/token limits. This means using virtual keys and adding a “user” attribute to your LangChain LLM client or chains via `model_kwargs`.
+
+---
 
 ### **Useful Resources**
 

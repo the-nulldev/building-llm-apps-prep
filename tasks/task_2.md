@@ -10,6 +10,8 @@
     - [Topics and Projects](#topics)
     - [Docs](#docs)
 
+---
+
 ### Description
 
 Storing chat history is important as it ensures that the model has context for coherent, on-topic responses. There are various strategies you can use to store chat history for your LangChain apps, like in-memory, local file storage, or in a database such as Redis or SQLite.
@@ -17,6 +19,8 @@ Storing chat history is important as it ensures that the model has context for c
 You need to be careful because chat history can become too long, leading to token misuse. For example, imagine a case where your chat history spans days and is becoming too long, even when the oldest messages aren’t needed.
 
 In this task, we look at strategies to manage and trim chat history so that your models always have the right balance between context and token usage.
+
+---
 
 ### Useful Notes
 
@@ -168,6 +172,8 @@ chain = prompt | trimmer | llm
 ```
 
 Now, the chat history won’t get too long, potentially using up more tokens than it should. However, remember to balance cost savings with enough context.
+
+---
 
 ### Development Steps
 

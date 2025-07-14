@@ -8,11 +8,15 @@
 - [Useful Resources](#useful-resources)
   - [Docs](#docs)
 
+---
+
 ### Description
 
 So far, we’ve left our application unguarded, hoping that users will use it responsibly. However, this is not always the case. We need to create various guardrails to enforce the responsible use of our application. We can also use them to verify LLM outputs and enforce the dialogue flow we expect our LLM application to follow.
 
 So far, we’ve been using carefully crafted prompts to ensure that the model doesn’t answer questions related to ordering and returns. Now, we’d like to place guardrails that prevent this from happening even without enforcing it in the system prompt.
+
+---
 
 ### Development Steps
 
